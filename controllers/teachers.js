@@ -8,11 +8,11 @@ const jwt = require('jsonwebtoken')
 exports.auth = async function (req, res, next){
     try {
         const token = req.header('Authorization').replace('Bearer ', '')
-        console.log(token)
+        // console.log(token)
         const data = jwt.verify(token, process.env.SECRET)
-        console.log(data)
+        // console.log(data)
         const teacher = await Teacher.findOne({ _id: data._id })
-        console.log(teacher)
+        // console.log(teacher)
         if(!teacher) {
             throw new Error('Bad Credentials')
         }
@@ -50,7 +50,7 @@ exports.allTeachers = async function (req, res){
 exports.showTeacher = async function (req, res){
     try {
         const teacher = await Teacher.findOne({ _id: req.params.id })
-        res.sendStatus(204)
+        res.json(teacher)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -78,7 +78,7 @@ exports.updateTeacher = async function (req, res){
         const updates = Object.keys(req.body) // Makes array of keys for each key update 
         updates.forEach(update => req.teacher[update] = req.body[update]) // Updates req.body with new keys in req.body update
         await req.teacher.save()
-        res.json(teacher)
+        res.json(req.teacher)
     } catch (error) {
         res.status(400).json({ message: error.message })  
     }
@@ -94,3 +94,4 @@ exports.deleteTeacher = async function (req, res){
         res.status(400).json({ message: error.message })
     }
 }
+

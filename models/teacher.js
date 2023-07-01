@@ -8,7 +8,8 @@ const teacherSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     assignments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Assignment' }],
-    students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }]
+    students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }],
+    classroom: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Classroom' }]
 }, {
     timestamps: true
 })

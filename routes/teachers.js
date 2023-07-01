@@ -3,7 +3,6 @@ const router = express.Router()
 const teacherController = require('../controllers/teachers')
 
 
-
 // Create /teachers
 router.post('/', teacherController.createTeacher)
 // Show All /teachers

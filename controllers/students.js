@@ -12,7 +12,7 @@ exports.createStudent = async function (req, res){
         req.teacher.students? // If exist....
         req.teacher.students.addToSet(student._id ): //...Then add student ID ....
         req.teacher.students = [student._id] // ...If it doesn't exist, make a new array
-        await req.teacher.save() //...Then save no matter exist or not
+        await req.teacher.populate.save() //...Then save no matter exist or not
         res.json(student)
     } catch (error) {
         res.status(400).json({ message: error.message })
