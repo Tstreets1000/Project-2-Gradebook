@@ -1,0 +1,25 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 20
+scenarios:
+  - flow:
+      - post:
+          url: "/teachers"
+          json:
+            name: "Test"
+            username: "{{ $randomString()}}" 
+            password: "Password123"
+           
+
+#  Line 12 creates random string to allow test to run 1200 random teachers! BOY!!!!
+
+
+
+
+
+
+
+
+

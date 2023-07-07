@@ -8,10 +8,10 @@ exports.createAssignment = async function (req, res){
     try {
         req.body.teacher = req.teacher._id
         const assignment = await Assignment.create(req.body)
-        req.teacher.assignments? // If exist....
-        req.teacher.assignments.addToSet(assignment._id ): //...Then add assignment ID ....
-        req.teacher.assignments = [assignment._id] // ...If it doesn't exist, make a new array
-        await req.teacher.populate.save() //...Then save no matter exist or not
+        req.teacher.assignment? // If exist....
+        req.teacher.assignment.addToSet(assignment._id ): //...Then add assignment ID ....
+        req.teacher.assignment = [assignment._id] // ...If it doesn't exist, make a new array
+        await req.teacher.save() //...Then save no matter exist or not
         res.json(assignment)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -20,8 +20,8 @@ exports.createAssignment = async function (req, res){
 
 exports.allAssignments = async function (req, res){
     try {
-        const assignment = await Assignment.find({})
-        res.json(assignment)
+        const assignments = await Assignment.find({})
+        res.json(assignments)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }

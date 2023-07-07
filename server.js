@@ -16,5 +16,5 @@ if (process.env.dev === "true") {
 }
 
 app.listen(PORT, () => {
-    console.log(`Shoot for the stars and land on the moon ${PORT}`)
+    console.log(`Shoot for the stars and land on the moon ${PORT} miles away`)
 })

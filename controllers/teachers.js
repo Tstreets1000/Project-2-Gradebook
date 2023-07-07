@@ -8,11 +8,8 @@ const jwt = require('jsonwebtoken')
 exports.auth = async function (req, res, next){
     try {
         const token = req.header('Authorization').replace('Bearer ', '')
-        // console.log(token)
         const data = jwt.verify(token, process.env.SECRET)
-        // console.log(data)
         const teacher = await Teacher.findOne({ _id: data._id })
-        // console.log(teacher)
         if(!teacher) {
             throw new Error('Bad Credentials')
         }
@@ -61,11 +58,26 @@ exports.loginTeacher = async function (req, res){
     try {
         const teacher = await Teacher.findOne({ username: req.body.username }) // Look Teacher up in Database
         if(!teacher || !await bcrypt.compare(req.body.password, teacher.password)) { // If both statements check true, move to generate token
-            throw new Error('Invalid Login Credentials') // Only if one or both statements check false
+            throw new Error('Invalid Login Credentials') // Only if one or both statements check false, throw new Error.
         } else {
+            teacher.loggedIn = true
+            await teacher.save()
             const token = await teacher.generateAuthToken()
             res.json({ teacher, token })
         }
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+// Logout a Teacher
+exports.logoutTeacher = async (req, res) => {
+    try {
+        const teacher = await Teacher.findOne({ username: req.body.username })
+        res.status(200)
+        res.send('You have been logged out.....Deuces!')
+        teacher.loggedIn = false
+        await teacher.save()
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -89,7 +101,8 @@ exports.updateTeacher = async function (req, res){
 exports.deleteTeacher = async function (req, res){
     try {
         await req.teacher.deleteOne()
-        res.sendStatus(204)
+        res.status(204)
+        res.send('Thanos Snapped his fingers!')
     } catch (error) {
         res.status(400).json({ message: error.message })
     }

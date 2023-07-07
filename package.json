@@ -4,6 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "testAssignment": "jest --testPathPattern=assignment.test.js",
+    "testSubject": "jest --testPathPattern=subject.test.js",
+    "testStudent": "jest --testPathPattern=student.test.js",
+    "testTeacher": "jest --testPathPattern=teacher.test.js",
     "start": "node server.js",
     "test": "jest",
     "dev": "nodemon server.js",

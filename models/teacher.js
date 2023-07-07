@@ -7,9 +7,10 @@ const teacherSchema = new mongoose.Schema({
     name: { type: String, required: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    assignments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Assignment' }],
-    students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }],
-    classroom: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Classroom' }]
+    loggedIn: { type: Boolean },
+    assignment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Assignment' }],
+    student: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }],
+    subject: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Subject' }]
 }, {
     timestamps: true
 })
