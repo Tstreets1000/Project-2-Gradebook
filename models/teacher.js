@@ -23,7 +23,6 @@ teacherSchema.pre('save', async function(next){
 })
 
 teacherSchema.methods.generateAuthToken = async function(){
-    console.log(process.env.SECRET)
     const token = jwt.sign({ _id: this._id }, process.env.SECRET)
     return token
 }
