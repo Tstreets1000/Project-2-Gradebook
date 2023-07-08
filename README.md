@@ -1,11 +1,11 @@
 <h1><bold>GRADEBOOK API<bold><h1>
 <div>
-    <h1><bold>PRIOR TO START (Install the following)</bold></h1>
+    <p>>PRIOR TO START (Install the following)</p>
 <ol>
-<h2><bold>Required<bold><h2>
+<p>Required<p>
     <li><a href="https://nodejs.org">Node.js</a></li>
     <li><a href="https://www.mongodb.com/cloud/atlas/register">MongoDB Atlas Database</a>
-<h2><bold>Optional</bold><h2>
+<p>>Optional</p>
     <li><a href="https://www.npmjs.com/package/nodemon">Nodemon</a> 
 </ol>
 </div>
@@ -16,7 +16,7 @@
 </div>
 
 <div>
-<h3><bold>START</bold></h3>
+<p>START</p>
     <ol>
         <li>Clone repository to your local machine.</li>
         <li>Open code in your choice of code editor.
@@ -32,7 +32,7 @@
 </div>
 
 <div>
-<h3>SERVER & DATABASE CONNECTION</h3>
+<p>>SERVER & DATABASE CONNECTION</p>>
 <p>Insure that the application is connected with the visual messages in your terminal window; (Both messages are found in the server.js file.)
     <li>'Mongo is metro boomin'</li>
     <li>`Shoot for the stars and land on the moon ${PORT} miles away`</li>
@@ -40,7 +40,7 @@
 </div>
 
 <div>
-<h3>POSTMAN</h3>
+<p>POSTMAN</p>
 <li>START with creating a teacher using a POST request. Once created, use the web token as the authorization key for access to other API features.</li>
 <li>Adjust the headers to reflect raw JSON data & authentication token if needed.</li>
 <li>Use the teacher Schema model to verify that the <bold>required</bold> informaiton is entered into the request body.</li>
@@ -50,7 +50,7 @@
 </div>
 
 <div>
-<h3>TESTING WITH JEST & SUPERTEST<h3>
+<p>>TESTING WITH JEST & SUPERTEST</p>
 <p>The server must not be running to test endroutes. Stop the server by using <code>pkill node</code> in you terminal.</p>
 <p>Run the following commands in the terminal window to verify all test routes are successful.</p>
 <li><code>npm run test</code> (Test all 24 routes)</li>
@@ -61,7 +61,7 @@
 </div>
 
 <div>
-<h3>TESTING WITH ARTILLERY (LOAD TESTING)<h3>
+<p>>TESTING WITH ARTILLERY (LOAD TESTING)<p>
 <p>The server will need to be running for this test. Start the server by using <code>npm run dev:true</code>
 <p>Run the following commands in the terminal window to verify all test routes are successful.</p>
 <li><code>npm run load</li>
