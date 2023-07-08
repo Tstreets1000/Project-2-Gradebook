@@ -56,7 +56,7 @@
 <p>Wireframe</p>
 
 <p>ERD DIAGRAM (LUCID CHART)</p>
-<a href=""></a>
+<a href="https://lucid.app/lucidchart/c8462fb4-b5d5-4ab3-a74d-6e35d614e48a/edit?page=0_0&invitationId=inv_d27c9df4-107f-498b-91fc-ef8732220b80#">ERD Diagram</a>
 
 <p>TRELLO BOARD</p>
 <a href="https://trello.com/b/tfZLSzEF/gradebook">Trello Board</a>
