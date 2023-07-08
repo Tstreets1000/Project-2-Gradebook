@@ -1,5 +1,8 @@
 require('dotenv').config()
+const Assignment = require('../models/assignment')
 const Teacher = require('../models/teacher')
+const Student = require('../models/student')
+const Subject = require('../models/subject')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -36,7 +39,7 @@ exports.createTeacher = async function (req, res){
 // Get All created Teachers
 exports.allTeachers = async function (req, res){
     try {
-        const teachers = await Teacher.find({})
+        const teachers = await Teacher.find()
         res.json(teachers)
     } catch (error) {
         res.status(400).json({ message: error.message })

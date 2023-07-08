@@ -1,6 +1,8 @@
 // Note: You can deal with assignments with an Authenticated Teacher
-const Subject = require('../models/subject')
+const Assignment = require('../models/assignment')
 const Teacher = require('../models/teacher')
+const Student = require('../models/student')
+const Subject = require('../models/subject')
 
 
 // === CREATE A SUBJECT === //
@@ -22,7 +24,9 @@ exports.createSubject = async function (req, res){
 // === FIND A SINGLE SUBJECT === //
 exports.showSubject = async function (req, res){
     try {
-        const subject = await Subject.findOne({ _id: req.params.id })
+        const subject = await Subject.findOne({ _id: req.params.id }).populate({
+            path: 'teacher',
+        })
         res.json(subject)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -32,7 +36,9 @@ exports.showSubject = async function (req, res){
 // === FIND ALL SUBJECTS === //
 exports.allSubjects = async function (req, res){
     try {
-        const subjects = await Subject.find({ })
+        const subjects = await Subject.find().populate({
+            path: 'teacher',
+        })
         res.json(subjects)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -42,7 +48,9 @@ exports.allSubjects = async function (req, res){
 // === UPDATE A SUBJECT === //
 exports.updateSubject = async function (req, res){
     try {
-        const subject = await Subject.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        const subject = await Subject.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).populate({
+            path: 'teacher',
+        })
         res.json(subject)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -52,7 +60,9 @@ exports.updateSubject = async function (req, res){
 // === DELETE A SUBJECT === //
 exports.deleteSubject = async function (req, res){
     try {
-        const subject = await Subject.findOneAndDelete({ _id: req.params.id })
+        const subject = await Subject.findOneAndDelete({ _id: req.params.id }).populate({
+            path: 'teacher',
+        })
         res.sendStatus(204)
     } catch (error) {
         res.status(400).json({ message: error.message })

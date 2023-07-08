@@ -1,7 +1,8 @@
 // Note: You can deal with assignments with an Authenticated Teacher
-const Student = require('../models/student')
 const Assignment = require('../models/assignment')
 const Teacher = require('../models/teacher')
+const Student = require('../models/student')
+const Subject = require('../models/subject')
 
 // Create a student
 exports.createStudent = async function (req, res){
@@ -22,7 +23,9 @@ exports.createStudent = async function (req, res){
 // Find all created students 
 exports.allStudents = async function (req, res){
     try {
-        const students = await Student.find({ })
+        const students = await Student.find().populate({
+            path: 'teacher',
+        })
         res.json(students)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -32,7 +35,9 @@ exports.allStudents = async function (req, res){
 // Find a single created student
 exports.showStudent = async function (req, res){
     try {
-        const student = await Student.findOne({ _id: req.params.id })
+        const student = await Student.findOne({ _id: req.params.id }).populate({
+            path: 'teacher',
+        })
         res.json(student)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -42,7 +47,9 @@ exports.showStudent = async function (req, res){
 // Find a single created student and update info
 exports.updateStudent = async function (req, res){
     try {
-        const student = await Student.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        const student = await Student.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).populate({
+            path: 'teacher',
+        })
         res.json(student)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -52,7 +59,9 @@ exports.updateStudent = async function (req, res){
 // Find a created student and delete
 exports.deleteStudent = async function (req, res){
     try {
-        const student = await Student.findOneAndDelete({ _id: req.params.id })
+        const student = await Student.findOneAndDelete({ _id: req.params.id }).populate({
+            path: 'teacher',
+        })
         res.sendStatus(204)
     } catch (error) {
         res.status(400).json({ message: error.message })
