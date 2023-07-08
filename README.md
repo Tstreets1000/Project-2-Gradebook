@@ -25,7 +25,7 @@
         <li>Create a .gitignore file to house the the MONGO_URI & SECRET keys.</li>        
     </ol>
 
-<p>>SERVER & DATABASE CONNECTION</p>>
+<p>SERVER & DATABASE CONNECTION</p>>
 <p>Insure that the application is connected with the visual messages in your terminal window; (Both messages are found in the server.js file.)
     <li>'Mongo is metro boomin'</li>
     <li>`Shoot for the stars and land on the moon ${PORT} miles away`</li>
