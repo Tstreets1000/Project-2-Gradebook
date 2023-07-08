@@ -39,7 +39,7 @@
     <p>You should see the created Teacher.</p>
     <p>Proceed through the following routes as students, assignments & subjects need to be created.</p>
 
-<p>>TESTING WITH JEST & SUPERTEST</p>
+<p>TESTING WITH JEST & SUPERTEST</p>
 <p>The server must not be running to test endroutes. Stop the server by using <code>pkill node</code> in you terminal.</p>
 <p>Run the following commands in the terminal window to verify all test routes are successful.</p>
 <li><code>npm run test</code> (Test all 24 routes)</li>
@@ -48,13 +48,13 @@
 <li><code>npm run testStudent</code> (Test only student routes)</li>
 <li><code>npm run testAssignment</code> (Test only assignment routes)</li>
 
-<p>>TESTING WITH ARTILLERY (LOAD TESTING)<p>
+<p>TESTING WITH ARTILLERY (LOAD TESTING)<p>
 <p>The server will need to be running for this test. Start the server by using <code>npm run dev:true</code>
 <p>Run the following commands in the terminal window to verify all test routes are successful.</p>
 <li><code>npm run load</li>
 
 <p>ERD DIAGRAM (LUCID CHART)</p>
-<a href="https://lucid.app/lucidchart/c8462fb4-b5d5-4ab3-a74d-6e35d614e48a/edit?viewport_loc=-3392%2C-1087%2C4130%2C2062%2C0_0&invitationId=inv_d27c9df4-107f-498b-91fc-ef8732220b80"></a>
+<a href=""></a>
 
 <p>TRELLO BOARD</p>
 <a href="https://trello.com/invite/b/tfZLSzEF/ATTI5ce8b92a39f8dd8d081ba7f2ecb543ba4A2D61FD/gradebook"></a>
