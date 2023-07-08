@@ -57,4 +57,4 @@
 <a href=""></a>
 
 <p>TRELLO BOARD</p>
-<a href="https://trello.com/invite/b/tfZLSzEF/ATTI5ce8b92a39f8dd8d081ba7f2ecb543ba4A2D61FD/gradebook"></a>
+<a href="https://trello.com/b/tfZLSzEF/gradebook"></a>
