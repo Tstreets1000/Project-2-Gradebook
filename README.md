@@ -1,6 +1,5 @@
 <h1><bold>GRADEBOOK API<bold><h1>
-
-    <p>PRIOR TO START (Install the following)</p>
+<p>PRIOR TO START (Install the following)</p>
 <ol>
 <p>Required<p>
     <li><a href="https://nodejs.org">Node.js</a></li>
