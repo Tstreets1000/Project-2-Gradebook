@@ -54,7 +54,7 @@
 <li><code>npm run load</li>
 
 <p>ERD DIAGRAM (LUCID CHART)</p>
-<li><a href="https://lucid.app/lucidchart/c8462fb4-b5d5-4ab3-a74d-6e35d614e48a/edit?viewport_loc=-3392%2C-1087%2C4130%2C2062%2C0_0&invitationId=inv_d27c9df4-107f-498b-91fc-ef8732220b80"></a></li>
+<a href="https://lucid.app/lucidchart/c8462fb4-b5d5-4ab3-a74d-6e35d614e48a/edit?viewport_loc=-3392%2C-1087%2C4130%2C2062%2C0_0&invitationId=inv_d27c9df4-107f-498b-91fc-ef8732220b80"></a>
 
 <p>TRELLO BOARD</p>
-<li><a href="https://trello.com/invite/b/tfZLSzEF/ATTI5ce8b92a39f8dd8d081ba7f2ecb543ba4A2D61FD/gradebook"></a></li>
+<a href="https://trello.com/invite/b/tfZLSzEF/ATTI5ce8b92a39f8dd8d081ba7f2ecb543ba4A2D61FD/gradebook"></a>
