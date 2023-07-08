@@ -4,7 +4,7 @@
 <p>Required<p>
     <li><a href="https://nodejs.org">Node.js</a></li>
     <li><a href="https://www.mongodb.com/cloud/atlas/register">MongoDB Atlas Database</a>
-<p>>Optional</p>
+<p>Optional</p>
     <li><a href="https://www.npmjs.com/package/nodemon">Nodemon</a> 
 </ol>
 
