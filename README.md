@@ -1,18 +1,17 @@
 <h1><bold>GRADEBOOK API<bold><h1>
 <p>PRIOR TO START (Install the following)</p>
-<ol>
+
 <p>Required<p>
     <li><a href="https://nodejs.org">Node.js</a></li>
     <li><a href="https://www.mongodb.com/cloud/atlas/register">MongoDB Atlas Database</a>
 <p>Optional</p>
     <li><a href="https://www.npmjs.com/package/nodemon">Nodemon</a> 
-</ol>
+
 
 </p>Run npm install -g nodemon in your the terminal of choice. See code below.</p>
     <pre><code>npm install -g nodemon</code></pre>
 
 <p>START</p>
-    <ol>
         <li>Clone repository to your local machine.</li>
         <li>Open code in your choice of code editor.
         <li>Install needed packages and dependencies by running the following code; <code>npm install</code>
@@ -23,13 +22,11 @@
         </li>
         <li>Create a .env file in the root directory to hold your MONGO_URI & SECRET. (Should be hashed/encrypted using SHA256.)</li>
         <li>Create a .gitignore file to house the the MONGO_URI & SECRET keys.</li>        
-    </ol>
-
-<p>SERVER & DATABASE CONNECTION</p>>
-<p>Insure that the application is connected with the visual messages in your terminal window; (Both messages are found in the server.js file.)
+  
+<p>SERVER & DATABASE CONNECTION</p>
+<p>Insure that the application is connected with the visual messages in your terminal window; (Both messages are found in the server.js file.)</p>
     <li>'Mongo is metro boomin'</li>
     <li>`Shoot for the stars and land on the moon ${PORT} miles away`</li>
-</p>
 
 <p>POSTMAN</p>
 <li>START with creating a teacher using a POST request. Once created, use the web token as the authorization key for access to other API features.</li>
