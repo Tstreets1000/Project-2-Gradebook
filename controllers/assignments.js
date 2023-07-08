@@ -4,7 +4,7 @@ const Teacher = require('../models/teacher')
 const Student = require('../models/student')
 const Subject = require('../models/subject')
 
-
+//=== CREATE A SUBJECT ===//
 exports.createAssignment = async function (req, res){
     try {
         req.body.teacher = req.teacher._id
@@ -19,10 +19,12 @@ exports.createAssignment = async function (req, res){
     }
 }
 
+//=== SHOW ALL ASSIGNMENTS ===//
 exports.allAssignments = async function (req, res){
     try {
         const assignments = await Assignment.find().populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(assignments)
     } catch (error) {
@@ -30,10 +32,12 @@ exports.allAssignments = async function (req, res){
     }
 }
 
+//=== SHOW SINGLE ASSIGNMENT ===//
 exports.showAssignment = async function (req, res){
     try {
         const assignment = await Assignment.findOne({ _id: req.params.id }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(assignment)
     } catch (error) {
@@ -41,10 +45,12 @@ exports.showAssignment = async function (req, res){
     }
 }
 
+//=== SHOW COMPLETED ASSIGNMENTS ===//
 exports.indexComplete = async function (req, res){
     try {
         const assignments = await Assignment.find({ completed: true }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(assignments)
     } catch (error) {
@@ -52,10 +58,12 @@ exports.indexComplete = async function (req, res){
     }
 }
 
+//=== SHOW INCOMPLETE ASSIGNMENTS ===//
 exports.indexNotComplete = async function (req, res){
     try {
         const assignments = await Assignment.find({ completed: false }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(assignments)
     } catch (error) {
@@ -63,10 +71,12 @@ exports.indexNotComplete = async function (req, res){
     }
 }
 
+//=== UPDATE ASSIGNMENTS ===//
 exports.updateAssignment = async function (req, res){
     try {
         const assignment = await Assignment.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(assignment)
     } catch (error) {
@@ -74,11 +84,10 @@ exports.updateAssignment = async function (req, res){
     }
 }
 
+//=== DELETE ASSIGNMENTS ===//
 exports.deleteAssignment = async function (req, res){
     try {
-        const assignment = await Assignment.findOneAndDelete({ _id: req.params.id }).populate({
-            path: 'teacher',
-        })
+        const assignment = await Assignment.findOneAndDelete({ _id: req.params.id })
         res.sendStatus(204)
     } catch (error) {
         res.status(400).json({ message: error.message })

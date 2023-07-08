@@ -5,6 +5,7 @@ const Student = require('../models/student')
 const Subject = require('../models/subject')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+let MySchema
 
 
 // Middleware function checking authorization
@@ -23,7 +24,7 @@ exports.auth = async function (req, res, next){
     }
 }
 
-// Create a Teacher using Auth token
+//=== Create a Teacher using Auth token ===//
 exports.createTeacher = async function (req, res){
     try {
         const teacher = new Teacher(req.body)
@@ -36,7 +37,7 @@ exports.createTeacher = async function (req, res){
 }
 
 
-// Get All created Teachers
+//=== Get All created Teachers ===//
 exports.allTeachers = async function (req, res){
     try {
         const teachers = await Teacher.find()
@@ -46,7 +47,7 @@ exports.allTeachers = async function (req, res){
     }
 }
 
-// Find a created Teacher
+//=== Find a created Teacher ===//
 exports.showTeacher = async function (req, res){
     try {
         const teacher = await Teacher.findOne({ _id: req.params.id })
@@ -56,7 +57,7 @@ exports.showTeacher = async function (req, res){
     }
 }
 
-// Login a Teacher using Auth token
+//=== Login a Teacher using Auth token ===//
 exports.loginTeacher = async function (req, res){
     try {
         const teacher = await Teacher.findOne({ username: req.body.username }) // Look Teacher up in Database
@@ -73,7 +74,7 @@ exports.loginTeacher = async function (req, res){
     }
 }
 
-// Logout a Teacher
+//=== Logout a Teacher ===//
 exports.logoutTeacher = async (req, res) => {
     try {
         const teacher = await Teacher.findOne({ username: req.body.username })
@@ -86,8 +87,8 @@ exports.logoutTeacher = async (req, res) => {
     }
 }
 
-// Update a teacher 
-// Already have a found teacher saved in req.teacher from Auth function
+//=== Update a teacher ===//
+//=== Already have a found teacher saved in req.teacher from Auth function ===//
 exports.updateTeacher = async function (req, res){
     try {
         const updates = Object.keys(req.body) // Makes array of keys for each key update 

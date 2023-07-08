@@ -4,7 +4,7 @@ const Teacher = require('../models/teacher')
 const Student = require('../models/student')
 const Subject = require('../models/subject')
 
-// Create a student
+//=== CREATE STUDENT ===//
 exports.createStudent = async function (req, res){
     try {
         req.body.teacher = req.teacher._id
@@ -20,11 +20,12 @@ exports.createStudent = async function (req, res){
     }
 }
 
-// Find all created students 
+//=== SHOW ALL STUDENTS ===//
 exports.allStudents = async function (req, res){
     try {
         const students = await Student.find().populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(students)
     } catch (error) {
@@ -32,11 +33,12 @@ exports.allStudents = async function (req, res){
     }
 }
 
-// Find a single created student
+//=== SHOW SINGLE STUDENT ===//
 exports.showStudent = async function (req, res){
     try {
         const student = await Student.findOne({ _id: req.params.id }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(student)
     } catch (error) {
@@ -44,11 +46,12 @@ exports.showStudent = async function (req, res){
     }
 }
 
-// Find a single created student and update info
+//=== UPDATE STUDENT ===//
 exports.updateStudent = async function (req, res){
     try {
         const student = await Student.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).populate({
             path: 'teacher',
+            populate: { path: 'assignment' },
         })
         res.json(student)
     } catch (error) {
@@ -56,12 +59,10 @@ exports.updateStudent = async function (req, res){
     }
 }
 
-// Find a created student and delete
+//=== DELETE STUDENT ===//
 exports.deleteStudent = async function (req, res){
     try {
-        const student = await Student.findOneAndDelete({ _id: req.params.id }).populate({
-            path: 'teacher',
-        })
+        const student = await Student.findOneAndDelete({ _id: req.params.id })
         res.sendStatus(204)
     } catch (error) {
         res.status(400).json({ message: error.message })
