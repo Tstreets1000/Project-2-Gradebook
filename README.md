@@ -53,6 +53,8 @@
 <p>Run the following commands in the terminal window to verify all test routes are successful.</p>
 <li><code>npm run load</li>
 
+<p>Wireframe</p>
+
 <p>ERD DIAGRAM (LUCID CHART)</p>
 <a href=""></a>
 
